@@ -26,3 +26,24 @@ export async function toggleTodo(todoId) {
     await db.set("todos", todos);
   }
 }
+
+const USER = {
+  username: "user",
+  password: "1234",
+  name: "John Doe",
+  token: "sdqfqshgfdqjhgdsfsdfkjqshdflj",
+};
+
+export async function databaseLogin(username, password) {
+  if (username === USER.username && password === USER.password) {
+    return USER;
+  }
+  return null;
+}
+
+export async function databaseGetUser(token) {
+  if (token === USER.token) {
+    return USER;
+  }
+  return null;
+}
